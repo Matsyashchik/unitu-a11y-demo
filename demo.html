@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unitu Accessibility Demo</title>
+    <link href="normalize.css" rel="stylesheet">
+    <link href="demo.css" rel="stylesheet">
+</head>
+<body>
+<main>
+    <h1>Accessibility Tricks</h1>
+    <section>
+        <h2>Useful links</h2>
+        <ul>
+            <li><a href="https://a11y-style-guide.com/style-guide/" tabindex="-1">Accessibility Style Guide</a></li>
+            <li><a href="https://webaim.org/" tabindex="-1">Web AIM</a></li>
+        </ul>
+    </section>
+
+    <h2>Colors</h2>
+    <section class="compare-table" style="font-size: 48px">
+        <div>
+            Inaccessible
+        </div>
+        <div>
+            Accessible
+        </div>
+        <div class="font-reducer unreadable-color">
+            <span>
+                Unreadable text
+                <span>
+                    Unreadable text
+                    <span>
+                        Unreadable text
+                        <span>
+                            Unreadable text
+                            <span>
+                                Unreadable text
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <div class="font-reducer">
+            <span>
+                Readable text
+                <span>
+                    Readable text
+                    <span>
+                        Readable text
+                        <span>
+                            Readable text
+                            <span>
+                                Readable text
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </section>
+
+    <h2>Inputs</h2>
+    <section class="compare-table" >
+        <div>
+            Inaccessible
+        </div>
+        <div>
+            Accessible
+        </div>
+
+        <div class="vertical-list">
+            <input tabindex="-1" style="margin-bottom: 36px;">
+            <label>For label</label>
+            <input placeholder="with label" style="margin-bottom: 36px;" tabindex="-1">
+        </div>
+        <div class="vertical-list">
+            <input placeholder="without label" title="Input without label" tabindex="-1">
+            <input placeholder="without label" aria-label="Input without label" tabindex="-1">
+
+            <label for="input-label">For label</label>
+            <input id="input-label" type="text" placeholder="with label" tabindex="-1">
+            <label>
+                Inside label
+                <input type="text" placeholder="with label" tabindex="-1">
+            </label>
+
+            <div>
+                <img id="label-aria" src="cat.png" aria-label="Meow meow"></img>
+                <input type="text" placeholder="with label" aria-labelledby="label-aria" tabindex="-1">
+            </div>
+        </div>
+    </section>
+
+    <h2>Tabindexes</h2>
+    <section class="squares-wrapper">
+        <button tabindex="1">1</button>
+        <button tabindex="4">4</button>
+        <button tabindex="2">2</button>
+        <button tabindex="3">3</button>
+        <button tabindex="-1">5</button>
+        <button tabindex="0">7</button>
+        <button tabindex="6">6</button>
+    </section>
+
+    <section>
+        <h2>The most useful attributes</h2>
+        <ul>
+            <li id="aria-label" aria-label="Custom text" tabindex="0"><code >aria-label</code></li>
+            <li aria-labelledby="aria-label" tabindex="0"><code>aria-labelledby</code></li>
+            <li title="This is the title" tabindex="0"><code>title</code></li>
+            <li tabindex="0"><code>aria-</code><code aria-hidden="true">hidden</code></li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>
